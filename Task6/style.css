@@ -1,47 +1,45 @@
-<script>
-// Declare an array of image filenames
-const imageFilenames = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
-
-// Declare an object with alternative text for each image
-const imageAltText = {
-  'pic1.jpg': 'Closeup of a blue human eye',
-  'pic2.jpg': 'A yellow flower',
-  'pic3.jpg': 'A red sports car',
-  'pic4.jpg': 'A small, fluffy dog',
-  'pic5.jpg': 'A mountain landscape'
-};
-
-// Loop through the array of filenames and insert <img> elements into thumb-bar
-const thumbBar = document.querySelector('.thumb-bar');
-
-for (let i = 0; i < imageFilenames.length; i++) {
-  const newImage = document.createElement('img');
-  newImage.setAttribute('src', 'project/' + imageFilenames[i]);
-  newImage.setAttribute('alt', imageAltText[imageFilenames[i]]);
-  thumbBar.appendChild(newImage);
-
-  // Add click event listener to each thumbnail image
-  newImage.addEventListener('click', function() {
-    const displayedImage = document.querySelector('.displayed-img');
-    displayedImage.setAttribute('src', 'project/' + imageFilenames[i]);
-    displayedImage.setAttribute('alt', imageAltText[imageFilenames[i]]);
-  });
+<style>
+h1 {
+  font-family: helvetica, arial, sans-serif;
+  text-align: center;
 }
 
-// Add click event listener to darken/lighten button
-const btn = document.querySelector('button');
-const overlay = document.querySelector('.overlay');
+body {
+  width: 640px;
+  margin: 0 auto;
+}
 
-btn.addEventListener('click', function() {
-  const currentClass = btn.getAttribute('class');
-  if (currentClass === 'dark') {
-    btn.setAttribute('class', 'light');
-    btn.textContent = 'Lighten';
-    overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
-  } else {
-    btn.setAttribute('class', 'dark');
-    btn.textContent = 'Darken';
-    overlay.style.backgroundColor = 'rgba(0,0,0,0)';
-  }
-});
-</script>
+.full-img {
+  position: relative;
+  display: block;
+  width: 640px;
+  height: 480px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+  background-color: rgba(0,0,0,0);
+}
+
+button {
+  border: 0;
+  background: rgba(150,150,150,0.6);
+  text-shadow: 1px 1px 1px white;
+  border: 1px solid #999;
+  position: absolute;
+  cursor: pointer;
+  top: 2px;
+  left: 2px;
+}
+
+.thumb-bar img {
+  display: block;
+  width: 20%;
+  float: left;
+  cursor: pointer;
+}
+</style>
