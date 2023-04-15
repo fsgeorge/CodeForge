@@ -1,4 +1,4 @@
-<script>
+
 // Declare an array of image filenames
 const imageFilenames = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 
@@ -44,4 +44,3 @@ btn.addEventListener('click', function() {
     overlay.style.backgroundColor = 'rgba(0,0,0,0)';
   }
 });
-</script>
