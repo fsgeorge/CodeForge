@@ -1,4 +1,4 @@
-// setup canvas
+// setup the canvas
 
 const para = document.querySelector('p');
 let count = 0;
